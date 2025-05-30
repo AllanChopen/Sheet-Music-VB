@@ -12,6 +12,7 @@ A Visual Basic WinForms application for parsing, validating, and generating shee
 
 ## Example Notation
 
+tempo(120); nota(c,1); nota(d,1); simbolo(silencio,2); simbolo(compas); nota(e,2); nota(f,2); simbolo(compas);
 
 ## How to Use
 

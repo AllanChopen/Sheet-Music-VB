@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang='es'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Partitura</title>
+  <script src='https://cdn.jsdelivr.net/npm/vexflow/releases/vexflow-min.js'></script>
+  <script src='https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js'></script>
+  <style>body { font-family: Arial; } #partitura { padding: 20px; }</style>
+</head>
+<body>
+<h2>Gato saltarin</h2>
+<div id='partitura'></div>
+<script>
+  const VF = Vex.Flow;
+  const div = document.getElementById('partitura');
+  const compasesPorLinea = 2;
+  const totalCompases = 7;
+  const anchoCompas = 300;
+  const altoStave = 150;
+  const lineas = Math.ceil(totalCompases / compasesPorLinea);
+  div.innerHTML = '';
+  const notesPorCompas = [];
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['a/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['a/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['a/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'h' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['a/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['a/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['c/4'], duration: 'h' }),
+    new VF.StaveNote({ keys: ['a/4'], duration: 'h' })
+  ]);
+  notesPorCompas.push([
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['b/4'], duration: 'q' }),
+    new VF.StaveNote({ keys: ['c/4'], duration: 'h' })
+  ]);
+  const renderers = [];
+  const contexts = [];
+  const staves = [];
+  for(let i = 0; i < lineas; i++) {
+    const svgContainer = document.createElement('div');
+    div.appendChild(svgContainer);
+    const renderer = new VF.Renderer(svgContainer, VF.Renderer.Backends.SVG);
+    renderer.resize(anchoCompas * compasesPorLinea, altoStave);
+    renderers.push(renderer);
+    const context = renderer.getContext();
+    contexts.push(context);
+    const stave = new VF.Stave(10, 40, anchoCompas * compasesPorLinea - 20);
+    stave.addClef('treble').addTimeSignature('4/4');
+    stave.setContext(context).draw();
+    staves.push(stave);
+  }
+  for(let i = 0; i < lineas; i++) {
+    const notas = [];
+    const startCompas = i * compasesPorLinea;
+    const endCompas = Math.min(startCompas + compasesPorLinea, totalCompases);
+    for(let j = startCompas; j < endCompas; j++) {
+      notas.push(...notesPorCompas[j]);
+      notas.push(new VF.BarNote());
+    }
+    const voice = new VF.Voice({ num_beats: 4 * (endCompas - startCompas), beat_value: 4 });
+    voice.addTickables(notas);
+    new VF.Formatter().joinVoices([voice]).format([voice], anchoCompas * compasesPorLinea - 40);
+    voice.draw(contexts[i], staves[i]);
+  }
+  const tempoValor = 120;
+  contexts[0].setFont('Arial', 14, '').setFillStyle('#000');
+  contexts[0].fillText('Tempo: ' + tempoValor + ' bpm', 10, 20);
+</script>
+<button onclick='reproducir()' style='margin: 20px; padding: 10px;'>▶ Reproducir</button>
+<script>
+  async function reproducir() {
+    await Tone.start();
+    const synth = new Tone.Synth({
+      envelope: { attack: 0.01, decay: 0.1, sustain: 0.3, release: 0.3 }
+    }).toDestination();
+    let now = Tone.now();
+    const bpm = 120;
+    const negraDuracion = 60 / bpm;
+    const notas = [
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'A4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'A4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'A4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion * 2 },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'A4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'A4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion * 2 },
+      { nota: 'A4', dur: negraDuracion * 2 },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'B4', dur: negraDuracion },
+      { nota: 'C4', dur: negraDuracion * 2 },
+    ];
+    for (let i = 0; i < notas.length; i++) {
+      const n = notas[i];
+      if (n.nota) synth.triggerAttackRelease(n.nota, n.dur, now);
+      now += n.dur + 0.05;
+    }
+  }
+</script>
+</body>
+</html>

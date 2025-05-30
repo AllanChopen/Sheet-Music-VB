@@ -1,0 +1,30 @@
+﻿"Start Symbol" = <Program>
+
+{String Chars} = {Printable} - [""]
+
+! Definición de tokens numéricos
+{Number Chars} = {Digit}
+{Number Start} = {Digit}
+num   = {Digit}+
+note = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g'    
+duracion =  '1' | '2' | '4'
+
+
+<Program> ::= <Statement> <Program>
+            | <Statement>
+
+<Statement> ::= 'nota' '(' <Note> ',' <Duration> ')' ';'
+              | 'simbolo' '(' <Compas> ')' ';'
+              | 'simbolo' '(' <Silencio> ',' <Duration> ')' ';'
+              | 'tempo' '(' <BPM> ')' ';'
+              | 'reproducir' ';'
+
+<Note> ::= note
+
+<Duration> ::= duracion
+            
+<Compas> ::= 'compas' 
+         
+<Silencio> ::= 'silencio'
+
+<BPM> ::= num

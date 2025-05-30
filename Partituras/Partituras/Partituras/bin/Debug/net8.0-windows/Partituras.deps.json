@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Partituras/1.0.0": {
+        "dependencies": {
+          "GOLD Engine": "5.0.4337.25397"
+        },
+        "runtime": {
+          "Partituras.dll": {}
+        }
+      },
+      "GOLD Engine/5.0.4337.25397": {
+        "runtime": {
+          "GOLD Engine.dll": {
+            "assemblyVersion": "5.0.4337.25397",
+            "fileVersion": "5.0.4337.25397"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Partituras/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GOLD Engine/5.0.4337.25397": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

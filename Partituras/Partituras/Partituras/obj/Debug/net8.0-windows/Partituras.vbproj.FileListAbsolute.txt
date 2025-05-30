@@ -1,0 +1,19 @@
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\Partituras.exe
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\Partituras.deps.json
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\Partituras.runtimeconfig.json
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\Partituras.dll
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\Partituras.pdb
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\bin\Debug\net8.0-windows\GOLD Engine.dll
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.vbproj.AssemblyReference.cache
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.Form1.resources
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.vbproj.GenerateResource.cache
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.AssemblyInfoInputs.cache
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.AssemblyInfo.vb
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.vbproj.CoreCompileInputs.cache
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.vbproj.Up2Date
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.dll
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\refint\Partituras.dll
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.pdb
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\Partituras.genruntimeconfig.cache
+C:\Users\allan\Documents\GoldParser\Partituras\Partituras\Partituras\obj\Debug\net8.0-windows\ref\Partituras.dll
